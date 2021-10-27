@@ -1,7 +1,7 @@
-// require('dotenv').config();
+require("dotenv").config();
 const path = require("path");
 const CaseSensitivePathsPlugin = require("case-sensitive-paths-webpack-plugin");
-// const Dotenv = require('dotenv-webpack');
+const Dotenv = require("dotenv-webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const outputDirectory = "dist";
@@ -54,8 +54,8 @@ module.exports = {
       favicon: "./public/favicon.ico",
     }),
     new CaseSensitivePathsPlugin(),
-    // new Dotenv({
-    //   safe: false,
-    // }),
+    new Dotenv({
+      safe: false,
+    }),
   ],
 };
