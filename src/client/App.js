@@ -6,10 +6,10 @@ function App() {
   return (
     <Router>
       <Route exact path="/">
-        <p>test</p>
+        <p>This is the main page</p>
       </Route>
-      <Route exact path="/lol">
-        <p>lol</p>
+      <Route exact path="/about">
+        <p>This is the about page</p>
       </Route>
       <Route exact path="/test-component">
         <TestComponent></TestComponent>

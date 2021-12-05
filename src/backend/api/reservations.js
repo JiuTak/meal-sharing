@@ -21,7 +21,10 @@ router.get("/", async (request, response) => {
         "reservations.number_of_guests"
       )
       .sum("reservations.number_of_guests")
-      .groupBy("meals.id");
+      .groupBy("meals.id")
+      .having(
+        knex.raw("max_reservations > sum(`reservations`.`number_of_guests`)")
+      );
     // .where("meals.id", "reservations.meal_id");
     response.json(checkIfAvailable);
   } catch (error) {
@@ -44,7 +47,10 @@ router.post("/", async (request, response) => {
         "reservations.number_of_guests"
       )
       .sum("reservations.number_of_guests")
-      .groupBy("meals.id");
+      .groupBy("meals.id")
+      .having(
+        knex.raw("max_reservations > sum(`reservations`.`number_of_guests`)")
+      );
     // .where("meals.id", "reservations.meal_id");
     response.json(checkIfAvailable);
 
