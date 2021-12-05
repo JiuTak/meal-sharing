@@ -50,3 +50,9 @@ button {
     padding-right: 0;
   }
 }
+
+.meals-container {
+  border: 1px solid #2d3233;
+  margin: 2rem;
+  padding: 0 auto;
+}
