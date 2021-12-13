@@ -3,8 +3,8 @@ import MealsList from "../client/components/MealsList";
 
 function Meals() {
   return (
-    <div>
-      <h1>Sharing you meal</h1>
+    <div className="main-page">
+      <h1>Sharing your meal</h1>
       <MealsList></MealsList>
     </div>
   );

@@ -6,24 +6,20 @@ import logo from "../assets/images/food.png";
 function NavBar() {
   return (
     <nav>
-      <div>
-        <Link to="/">
-          <img src={logo} style={{ width: "55px", height: "55px" }} />
+      <Link to="/">
+        <img src={logo} style={{ width: "55px", height: "55px" }} />
+      </Link>
+      <ul className="nav-links">
+        <Link to="/about">
+          <li>About</li>
         </Link>
-      </div>
-      <div>
-        <ul className="nav-links">
-          <Link to="/about">
-            <li>About</li>
-          </Link>
-          <Link to="/meals">
-            <li>Meals</li>
-          </Link>
-          <Link to="/reservations">
-            <li>Reservations</li>
-          </Link>
-        </ul>
-      </div>
+        <Link to="/meals">
+          <li>Meals</li>
+        </Link>
+        <Link to="/sharing">
+          <li>Sharing</li>
+        </Link>
+      </ul>
     </nav>
   );
 }

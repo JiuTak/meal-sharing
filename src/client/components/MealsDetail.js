@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Meals from "../../pages/Meals";
 import MenuMeal from "./MenuMeal";
 
@@ -21,8 +21,12 @@ function MealsDetail({ match }) {
 
   return (
     <div>
-      <h1> Individual meal</h1>
-      <MenuMeal meal={meal} />
+      {/* <h1> Individual meal</h1> */}
+      <MenuMeal
+        meal={meal}
+        className="meals-detail"
+        style={{ color: "green" }}
+      />
     </div>
   );
 }

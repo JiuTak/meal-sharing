@@ -5,30 +5,28 @@ import MenuMeal from "./MenuMeal";
 
 function MealsList() {
   const { meals, error, isLoaded } = useMeals();
-  console.log(meals);
 
   const newMeals = [...meals];
 
   return (
-    <div>
+    <div className="meals-holder">
       {isLoaded ? (
-        <div>loading...</div>
+        <div className=" lds-ripple" style={{ textAlign: "center" }}>
+          <div>loading...</div>
+        </div>
       ) : error ? (
         <div> {error} </div>
       ) : (
         newMeals.map((meal) => {
           return (
-            <ul
-              key={meal.id}
-              className="meals-container"
-              style={{ listStyle: "none", border: "none" }}
-            >
-              <li key={meal.id}>
-                <Link to={`/meals/${meal.id}`}>
-                  <MenuMeal meal={meal} />
-                </Link>
-              </li>
-            </ul>
+            <div key={meal.id} className="meals-container">
+              <Link
+                to={`/meals/${meal.id}`}
+                style={{ textDecoration: "unset", color: "black" }}
+              >
+                <MenuMeal meal={meal} />
+              </Link>
+            </div>
           );
         })
       )}

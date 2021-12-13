@@ -5,23 +5,21 @@
   box-sizing: border-box;
 }
 
-.main-page {
-    text-align: center;
-}
-
-.meals-container {
-  border: 1px solid #2d3233;
-  margin: 2rem;
-  padding: 0 auto;
+body {
+  margin: unset;
 }
 
 nav {
   display: flex; 
   justify-content: space-around;
   align-items: center;
-  min-height: 10vh;
-  background-color: #a0d6ae;
+  height: 5vh;
+  background-color: #9ad4e7;
   color: white;
+
+  @media (min-width: 1440px) {
+    max-width: 100vw;
+  }
 }
 
 .nav-links {
@@ -30,7 +28,92 @@ nav {
   justify-content: space-around;
   align-items: center;
   list-style: none;
+  cursor: pointer;
+}
 
+h1 {  
+  margin: 0 auto;
+  padding-bottom: 2rem;
+  text-align: center;
+}
+
+.main-page {
+    text-align: center;
+    background-color: rgb(200, 245, 223);
+    width: 100vw;
+    height: 100vh;
+    padding: 5rem;
+
+    img {
+      width: 800px;      
+      opacity: 0.8;
+
+      @media (max-width: 1334px) {
+        width: 600px !important;
+        margin: unset;
+      }
+
+      @media (max-width: 500px) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 1400px) {
+      padding: 2rem;
+    }
+
+}
+
+.meals-page-container {
+  margin: 0px auto;
+  position: relative;
+
+  @media (min-width: 1200px) {
+    width: 1152px;
+  }
+
+  @media (min-width: 1000px) {
+    padding: 32px 0px;
+  }
+
+}
+
+.meals-holder {
+  min-width: 0px;
+  min-height: 0px;
+  width: 100%;
+  position: relative;
+  text-align: left;
+  display: grid;
+  grid-gap: 26px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  margin-top: 4rem;
+}
+
+.meals-container {  
+  min-width: 0px;
+  min-height: 0px;
+  // border: 2px solid rgb(177, 195, 226);
+  border-radius: 35px;
+  position: relative;
+  text-align: center;
+
+  &:hover {
+    background-color: #e9f3fd;
+    transform: translateY(-10px);
+  }
+}
+
+nav {
+  display: flex; 
+  justify-content: space-around;
+  align-items: center;
+  min-height: 12vh;
+  background-color: #a0d6ae;
+  color: white;
+}
+
+.nav-links {
   li {
       display: inline;
       padding: 2rem;
@@ -44,3 +127,50 @@ nav {
   }
 }
 
+.meals-detail {  
+  margin: 3rem auto;
+  position: relative;
+
+  h4{
+    color: red;
+  }
+}
+
+
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid rgb(163, 211, 248);
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+
+  &:nth-child(2) {
+    animation-delay: -0.5s;
+  }
+
+}
+
+
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
+}

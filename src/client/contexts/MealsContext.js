@@ -23,7 +23,7 @@ const MealsProvider = ({ children }) => {
         .then((data) => {
           setMeals(data);
           setIsLoaded(false);
-          console.log(data);
+          // console.log(data);
         });
     } catch (error) {
       setError(error.message);

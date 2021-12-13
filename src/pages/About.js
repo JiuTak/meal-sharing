@@ -1,7 +1,11 @@
 import React from "react";
 
 function About() {
-  return <div>this is about page</div>;
+  return (
+    <div>
+      <h1> About us</h1>
+    </div>
+  );
 }
 
 export default About;
