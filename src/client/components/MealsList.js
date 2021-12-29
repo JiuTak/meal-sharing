@@ -8,6 +8,14 @@ function MealsList() {
 
   const newMeals = [...meals];
 
+  // newMeals.map( meal => {
+  //   if (meal.max_reservations > meal.) {
+
+  //   } else {
+
+  //   }
+  // })
+
   return (
     <div className="meals-holder">
       {isLoaded ? (

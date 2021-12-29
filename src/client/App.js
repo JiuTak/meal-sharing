@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import About from "../pages/About";
 import Home from "../pages/Home";
 import Meals from "../pages/Meals";
 import NavBar from "./components/NavBar";
 import MealsDetail from "./components/MealsDetail";
+import ToggleNavBar from "./components/ToggleNavBar";
 
 function App() {
+  const [isActiveNav, setIsActiveNav] = useState(true);
+  const navbarActive = () => {
+    setIsActiveNav(!isActiveNav);
+  };
+
   return (
     <Router>
-      <NavBar />
+      <NavBar navbarActive={navbarActive} />
+      {!isActiveNav && <ToggleNavBar navbarActive={navbarActive} />}
       <Switch>
         <Route exact path="/" component={Home}></Route>
         <Route exact path="/about" component={About}></Route>

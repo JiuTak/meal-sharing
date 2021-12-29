@@ -1,9 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
 import Meals from "../../pages/Meals";
+import { useMeals } from "../contexts/MealsContext";
 import MenuMeal from "./MenuMeal";
+import ReservationForm from "./ReservationForm";
 
 function MealsDetail({ match }) {
   const [meal, setMeal] = useState({});
+  const [showReservation, setShowReservation] = useState(false);
+
   console.log(meal, "meal");
 
   useEffect(() => {
@@ -20,13 +24,19 @@ function MealsDetail({ match }) {
   };
 
   return (
-    <div>
-      {/* <h1> Individual meal</h1> */}
-      <MenuMeal
-        meal={meal}
-        className="meals-detail"
-        style={{ color: "green" }}
-      />
+    <div style={{ padding: "3rem" }}>
+      <div className="individual-meal">
+        <MenuMeal meal={meal} />
+        <button
+          className="add-meal-reservation"
+          onClick={() => {
+            setShowReservation(true);
+          }}
+        >
+          Book this meal
+        </button>
+        {showReservation && <ReservationForm meal_id={match.params.id} />}
+      </div>
     </div>
   );
 }

@@ -25,7 +25,6 @@ router.get("/", async (request, response) => {
       .having(
         knex.raw("max_reservations > sum(`reservations`.`number_of_guests`)")
       );
-    // .where("meals.id", "reservations.meal_id");
     response.json(checkIfAvailable);
   } catch (error) {
     throw error;

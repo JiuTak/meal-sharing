@@ -1,30 +1,59 @@
+import { useState, useEffect } from "react";
 import React from "react";
 const { DateTime } = require("luxon");
 
-function MenuMeal(props) {
+function MenuMeal(props, { match }) {
+  const [reservations, setReservations] = useState({});
+
   const {
     title,
     description,
-    max_reservations,
     price,
     location,
     when_date,
     imgUrl,
     isAvailable,
+    number_of_guests,
   } = props.meal;
 
+  useEffect(() => {
+    fetchReservations();
+  }, []);
+
+  const fetchReservations = async () => {
+    const fetchReservations = await fetch(`/api/reservations/`);
+    const reservations = await fetchReservations.json();
+    setReservations(reservations[0]);
+
+    console.log("reservationssss", reservations);
+    console.log("reservationssss", reservations[0]);
+
+    console.log(match.params.id, "params-id");
+
+    const reservation = reservations.filter(
+      reservations.meal_id === match.params.id
+    );
+    console.log("reservation", reservation);
+  };
+
   return (
-    <div style={{ textAlign:"center", textDecoration:"unset"}}>
-      <h4>{title}</h4>
-      <h6>{description}</h6>
-      <h6>{max_reservations}</h6>
-      <h6>{price}</h6>
+    <div
+      style={{
+        textAlign: "center",
+        textDecoration: "unset",
+      }}
+    >
+      <h4 className="meal-title">{title}</h4>
+      <h6 className="meal-description">{description}</h6>
+      <h6 className="meal-price">{price}</h6>
       {/* <img src={imgUrl} /> */}
-      <h6>
+      <h6 className="meal-date">
         {DateTime.fromISO(when_date).toLocaleString(
           DateTime.DATE_MED_WITH_WEEKDAY
         )}
       </h6>
+      <p> {location} </p>
+      <p> {isAvailable} </p>
     </div>
   );
 }
