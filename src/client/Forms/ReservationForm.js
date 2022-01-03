@@ -52,11 +52,12 @@ function ReservationForm({ meal_id }) {
   };
 
   return (
-    <div>
+    <div className="reservation-container">
       <form onSubmit={handleSubmit}>
-        <div>
-          <lable>
-            <span>Name</span>
+        <div className="reservation-form">
+          <lable className="lable-container">
+            <span>Name: </span>
+            <br />
             <input
               type="text"
               value={addReservation.contact_name}
@@ -69,8 +70,9 @@ function ReservationForm({ meal_id }) {
               }
             />
           </lable>
-          <lable>
-            <span>Phone number</span>
+          <lable className="lable-container">
+            <span>Phone number: </span>
+            <br />
             <input
               type="text"
               value={addReservation.contact_phonenumber}
@@ -83,8 +85,9 @@ function ReservationForm({ meal_id }) {
               }
             />
           </lable>
-          <lable>
-            <span>Email</span>
+          <lable className="lable-container">
+            <span>Email: </span>
+            <br />
             <input
               type="text"
               value={addReservation.contact_email}
@@ -97,8 +100,9 @@ function ReservationForm({ meal_id }) {
               }
             />
           </lable>
-          <lable>
-            <span>Number of guests</span>
+          <lable className="lable-container">
+            <span>Number of guests: </span>
+            <br />
             <input
               type="text"
               value={addReservation.number_of_guests}
@@ -111,10 +115,11 @@ function ReservationForm({ meal_id }) {
               }
             />
           </lable>
+
+          <button className="reservation-btn">
+            {addMealReservation.submitting ? "New Booking" : "Book"}
+          </button>
         </div>
-        <button>
-          {addMealReservation.submitting ? "New Booking" : "Book"}
-        </button>
       </form>
     </div>
   );

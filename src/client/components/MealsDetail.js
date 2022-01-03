@@ -1,14 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
-import Meals from "../../pages/Meals";
-import { useMeals } from "../contexts/MealsContext";
 import MenuMeal from "./MenuMeal";
-import ReservationForm from "./ReservationForm";
+import ReservationForm from "../Forms/ReservationForm";
 
 function MealsDetail({ match }) {
   const [meal, setMeal] = useState({});
   const [showReservation, setShowReservation] = useState(false);
 
-  console.log(meal, "meal");
+  console.log("meal", meal);
 
   useEffect(() => {
     fetchMeal();
@@ -18,13 +16,10 @@ function MealsDetail({ match }) {
     const fetchMeal = await fetch(`/api/meals/${match.params.id}`);
     const meal = await fetchMeal.json();
     setMeal(meal[0]);
-
-    console.log(meal);
-    console.log(meal.title);
   };
 
   return (
-    <div style={{ padding: "3rem" }}>
+    <div className="meal-page">
       <div className="individual-meal">
         <MenuMeal meal={meal} />
         <button

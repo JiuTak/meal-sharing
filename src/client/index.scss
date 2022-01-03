@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 @import 'theme.css';
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Baloo+2&family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
 * {
   font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
@@ -13,7 +16,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #a0d6ae;
+  background-color: #b1d8bb;
   color: white;
 
   .navbar-container {
@@ -146,24 +149,6 @@ body {
 
   @media (max-width: 960px) {
     display: none;
-    // grid-template-columns: auto;
-    // margin: 0;
-    // width: 100%;
-    // position: absolute;
-    // // top: -1000px;
-    // opacity: 1;
-    // transition: all 0.5s ease;
-    // z-index: -1;
-
-    // &:active {
-    //   background: #9ad4e7;
-    //   top: 100%;
-    //   opacity: 1;
-    //   transition: all 0.5s ease;
-    //   z-index: 99;
-    //   height: 60vh;
-    //   font-size: 1.6rem;
-    // }
   }
 
   a {
@@ -209,10 +194,11 @@ h1 {
 
 .main-page {
     text-align: center;
-    background-color: rgb(200, 245, 223);
+    background-color: #FDFDE7;
     background-attachment: fixed;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     padding: 5rem;
 
     img {
@@ -237,6 +223,12 @@ h1 {
       position: relative;
     }
 
+}
+
+.homeH1, .meal-page-h1, .sharing-page-h1, .about-page-h1 {  
+  font-family: 'Poiret One', cursive;
+  font-size: 4rem;
+  letter-spacing: 1rem;
 }
 
 .meals-page-container {
@@ -267,16 +259,26 @@ h1 {
   width: 100%;
   // border: 1px solid rgb(223, 226, 231);
   border-radius: 20px;
-  background-color: #a0d6ae;
+  background-color: #b6e9c4;
   position: relative;
   text-align: left;
   color: antiquewhite;
 
 
   &:hover {
-    background-color: #dbf8eb;
+    background-color: #87be96;
     transform: translateY(-10px);
     color: black;
+  }
+
+  .meal-description {
+    width: 200px;
+    margin: 0 auto;
+    display: block;  
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
   }
 }
 
@@ -328,30 +330,171 @@ h1 {
   }
 }
 
+.meal-page {
+  background-color: #fdfde7;
+  padding: 3rem;
+  min-height: 100vh;
+  height: 100%;
+}
+
 .individual-meal {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #000;
+  border-radius: 40px;
+  // border: 3px solid #a0aad6;
+  padding-bottom: 2rem;
 
   .meal-title {
     font-size: 2rem;
   }
 
+  .meal-description,
+  .meal-price,
+  .meal-date {
+    font-size: 1.25rem;
+    width: 500px;
+  }
+
+  .meal-description {
+    word-spacing: 2px;
+    line-height: 2rem;
+  }
+
 }
 
+// Reservation part
+
 .add-meal-reservation {
-  background: #1CD8D2;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #93EDC7, #1CD8D2);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #93EDC7, #1CD8D2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: 'Baloo 2', cursive;
+  font-weight: 700;
+  background: #FFFFC0;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFC0, #ffffae, #FFFFC0);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFC0, #ffffae, #FFFFC0);
   display: flex;
   justify-content: center;
   align-items: center;
   border: none;
   outline: none;
-  border-radius: 4px;
   height: 100%;
-  width: 100%;
+  width: 450px;
+  padding: 1rem;
   transition: all 0.3s ease;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
 
+.reservation-container {
+  background: #FFFFC0;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFC0, #ffffae, #FFFFC0);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFC0, #ffffae, #FFFFC0);
+  width: 450px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  .reservation-form {  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    span, input {    
+      font-family: 'Baloo 2', cursive !important;
+    }
+  
+    .lable-container {
+      margin: 1rem;    
+    }
+  }
+
+  .reservation-btn {
+    font-family: 'Baloo 2', cursive;
+    font-weight: 700;    
+    width: 150px;
+    height: 40px;
+    border: none;
+    margin: 1rem;    
+    font-size: 1.3rem;
+    color: #000;
+    background-color: transparent;
+    // border: 1px solid #E1FFBE;
+    background-color: #b6e9c4;
+    border-radius: 30px;
+    cursor: pointer;
+    -webkit-transition: all .15s linear;
+    transition: all .6s linear;
+    transform-origin: left;
+
+    &:hover {
+      -webkit-box-shadow: 5px 5px 5px 0px #138b87, 1px 2px 2px 0px #138b87, 5px 5px 10px 5px rgba(0,0,0,0); 
+      box-shadow: 5px 5px 5px 0px #138b87, 1px 2px 2px 0px #138b87, 5px 5px 10px 5px rgba(0,0,0,0);
+      background-color: #9cd4ab;
+      transition: background-color 0.4s, color 0.3s;
+      transition-timing-function: ease-in;
+    }
+  }
+}
+
+
+// Adding new meal(sharing) part
+.adding-newmeal-container, .about-page {
+  text-align: center;
+  background-color: #f1fdff;
+  background-attachment: fixed;
+  width: 100vw;
+  min-height: 100vh;
+  height: 100%;
+  padding: 5rem;
+}
+
+.adding-newmeal-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  align-content: center;
+  text-align: left;
+  max-width: 750px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  background-color: #C8F5DF;
+  border-radius: 30px;
+  padding: 2rem;
+
+  span, input, textarea {    
+    font-family: 'Baloo 2', cursive !important;
+    width: 450px;
+    font-size: 1.2rem;
+  }
+
+  .lable-container {
+    margin: 1rem;    
+  }
+
+  .addmeal-btn {
+    margin: 2rem auto;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 700;    
+    width: 250px;
+    height: 50px;
+    border: none;   
+    font-size: 1.3rem;
+    color: #000;
+    background-color: transparent;
+    // border: 1px solid #E1FFBE;
+    background-color: #b6e9c4;
+    border-radius: 30px;
+    cursor: pointer;
+    -webkit-transition: all .15s linear;
+    transition: all .6s linear;
+    transform-origin: left;
+
+    &:hover {
+      -webkit-box-shadow: 5px 5px 5px 0px #138b87, 1px 2px 2px 0px #138b87, 5px 5px 10px 5px rgba(0,0,0,0); 
+      box-shadow: 5px 5px 5px 0px #138b87, 1px 2px 2px 0px #138b87, 5px 5px 10px 5px rgba(0,0,0,0);
+      background-color: #9cd4ab;
+      transition: background-color 0.4s, color 0.3s;
+      transition-timing-function: ease-in;
+    }
+  }
 }

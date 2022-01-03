@@ -14,6 +14,7 @@ function MenuMeal(props, { match }) {
     imgUrl,
     isAvailable,
     number_of_guests,
+    id,
   } = props.meal;
 
   useEffect(() => {
@@ -26,9 +27,7 @@ function MenuMeal(props, { match }) {
     setReservations(reservations[0]);
 
     console.log("reservationssss", reservations);
-    console.log("reservationssss", reservations[0]);
-
-    console.log(match.params.id, "params-id");
+    console.log(props.view);
 
     const reservation = reservations.filter(
       reservations.meal_id === match.params.id
@@ -45,7 +44,7 @@ function MenuMeal(props, { match }) {
     >
       <h4 className="meal-title">{title}</h4>
       <h6 className="meal-description">{description}</h6>
-      <h6 className="meal-price">{price}</h6>
+      <h6 className="meal-price">{price} dkk</h6>
       {/* <img src={imgUrl} /> */}
       <h6 className="meal-date">
         {DateTime.fromISO(when_date).toLocaleString(

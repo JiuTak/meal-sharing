@@ -8,25 +8,10 @@ const knex = require("../database");
 
 router.get("/", async (request, response) => {
   try {
-    // const reservations = await knex("reservations");
-    // response.json(reservations);
-
-    const checkIfAvailable = await knex("meals")
-      .join("reservations", "meals.id", "reservations.meal_id")
-      .select(
-        "reservations.meal_id",
-        "meals.id",
-        "meals.title",
-        "meals.max_reservations",
-        "reservations.number_of_guests"
-      )
-      .sum("reservations.number_of_guests")
-      .groupBy("meals.id")
-      .having(
-        knex.raw("max_reservations > sum(`reservations`.`number_of_guests`)")
-      );
-    response.json(checkIfAvailable);
+    const reservations = await knex("reservations").select("*");
+    response.json(reservations);
   } catch (error) {
+    response.status(500).end();
     throw error;
   }
 });
