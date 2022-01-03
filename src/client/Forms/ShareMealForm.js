@@ -112,6 +112,20 @@ function ShareMealFrom() {
             />
           </lable>
           <lable className="newmeal-lable-container">
+            <span>Place : </span>
+            <br />
+            <input
+              type="text"
+              required
+              onChange={(e) =>
+                setAddNewMeal({
+                  ...addNewMeal,
+                  location: e.target.value,
+                })
+              }
+            />
+          </lable>
+          <lable className="newmeal-lable-container">
             <span>Sharing date : </span>
             <br />
             <input
