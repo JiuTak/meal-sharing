@@ -75,6 +75,7 @@ function ShareMealFrom() {
             <br />
             <textarea
               style={{ height: "200px" }}
+              required
               onChange={(e) =>
                 setAddNewMeal({ ...addNewMeal, description: e.target.value })
               }
@@ -116,6 +117,10 @@ function ShareMealFrom() {
             <br />
             <input
               type="text"
+              onKeyPress={(event) =>
+                (event.charCode >= 65 && event.charCode <= 90) ||
+                (event.charCode >= 97 && event.charCode <= 122)
+              }
               required
               onChange={(e) =>
                 setAddNewMeal({

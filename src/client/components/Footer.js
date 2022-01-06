@@ -43,6 +43,9 @@ export default function Footer() {
           </ul>
         </li>
       </ul>
+      <div className="copyright">
+        <span>©Copyright | 2021 Jiu Tak, HYF Copenhagen, Denmark</span>
+      </div>
     </Container>
   );
 }
@@ -52,6 +55,7 @@ const Container = styled.div`
   height: 100%;
   width: 100vw;
   margin: unset;
+  background-color: #b1d8bb;
 
   h3 {
     color: #138b87;
@@ -65,7 +69,7 @@ const Container = styled.div`
 
     &:hover {
       cursor: pointer;
-      color: #49945E;
+      color: #49945e;
       transition: all 0.3 ease;
       text-decoration: overline;
     }
@@ -106,5 +110,11 @@ const Container = styled.div`
     justify-content: flex-start;
     align-content: flex-start;
     padding: unset;
+  }
+
+  .copyright {
+    text-align: center;
+    color: #fff;
+    padding: 2rem;
   }
 `;
